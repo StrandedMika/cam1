@@ -23,8 +23,8 @@
                 border: 1px solid black;
             }
             #videoElement {
-                width: 1080px;
-                height: auto;
+                
+                
                 background-color: #333;
                 margin: auto;
                 
@@ -48,7 +48,7 @@
                 var video1 = document.querySelector("#videoElement1");
 
                 if (navigator.mediaDevices.getUserMedia) {
-                  navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}}} )
+                  navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}, width: 1080}} )
               .then(function (stream) {
        video1.srcObject = stream;
                     })
@@ -62,7 +62,7 @@
                 var video2 = document.querySelector("#videoElement2");
 
                 if (navigator.mediaDevices.getUserMedia) {
-                  navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}}} )
+                  navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}, width: 720}} )
               .then(function (stream) {
        video2.srcObject = stream;
                     })
