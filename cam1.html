@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+<meta charset="utf-8">
+<title>Camera</title>
+ 
+        <style>
+            body {
+                width: auto;
+                height: auto;
+                background-color: cyan;
+            }
+            
+           
+                
+            #container1 {
+                margin: 0px auto;
+                width: 1080px;
+                height: 1080px;
+                border: 1px #333 solid;
+               // transform: rotate(90deg);  
+            }
+            #container2 {
+                margin: 0px auto;
+                width: 1080px;
+                height: 1080px;
+                border: 1px #333 solid;
+            }
+            #videoElement {
+                align-self: center;
+                width: auto;
+                height: auto;
+                background-color: white;
+                
+            }
+            </style>
+        </head>
+
+        <body style="background-color: cyan">
+            <div id="container1">
+            <video autoplay="true" id="videoElement1">
+
+            </video>
+            </div>
+             <div id="container2">
+            <video autoplay="true" id="videoElement2">
+
+            </video>
+            </div>
+            <script>
+                var video1 = document.querySelector("#videoElement1");
+
+                if (navigator.mediaDevices.getUserMedia) {
+                  navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}}} )
+              .then(function (stream) {
+       video1.srcObject = stream;
+                    })
+                    .catch(function (err0r) {
+                      console.log("Something went wrong!");
+                    });
+                }
+
+                  
+              </script>
+              
+        </body>
+</html>
