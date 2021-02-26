@@ -10,9 +10,6 @@
                 height: auto;
                 background-color: cyan;
             }
-            
-           
-                
             #container1 {
                 margin: 0px auto;
                 width: 1080px;
@@ -37,16 +34,17 @@
         </head>
 
         <body style="background-color: cyan">
+            
             <div id="container1">
             <video autoplay="true" id="videoElement1">
-
             </video>
             </div>
-             <div id="container2">
+            
+            <div id="container2">
             <video autoplay="true" id="videoElement2">
-
             </video>
             </div>
+            
             <script>
                 var video1 = document.querySelector("#videoElement1");
 
@@ -57,6 +55,22 @@
                     })
                     .catch(function (err0r) {
                       console.log("Something went wrong!");
+                    });
+                }
+
+                  
+              </script>
+            
+              <script>
+                var video1 = document.querySelector("#videoElement2");
+
+                if (navigator.mediaDevices.getUserMedia) {
+                  navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}}} )
+              .then(function (stream) {
+       video1.srcObject = stream;
+                    })
+                    .catch(function (err0r) {
+                      alert("Something went wrong!");
                     });
                 }
 
